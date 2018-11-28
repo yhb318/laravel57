@@ -97,7 +97,7 @@ class EloquentsController extends Controller
 
 	//———————————————————————————————————————
 	//|Software: 调取 一对多
-	//|	一篇博客文章拥有多条评论 
+	//|	一篇博客文章拥有多条评论
 	//|=======================================
 	public function hasMany_($value='')
 	{
