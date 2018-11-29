@@ -101,8 +101,9 @@ class EloquentsController extends Controller
 	//|=======================================
 	public function hasMany_($value='')
 	{
-		$list=ModelMember::get();
+		$list=ModelMember::get(); //echo "sum：";//	echo等用前端魔板时才能用 debugbar调试工具
 		$data=$list[0]->Many()->orderBy('id','desc')->get()->toArray();  //取对应多条关系  按倒叙  [ ->first() 取第一条 ]
+		// return $list;//自己返回对象 则在前端接收为json数组
 		dd($data);
 	}
 

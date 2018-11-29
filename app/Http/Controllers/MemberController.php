@@ -170,16 +170,16 @@ class MemberController extends Controller
 	public function insert_data($value='')
 	{
 		$time=time(); $number=rand('1',99);
-		$insert=DB::insert('insert into l_member (name,other,addtime) values (?,?,?)', ['Dayle'.$number, 'content'.$number,$time]);
+		$insert=DB::insert('insert into table_member (name,other,addtime) values (?,?,?)', ['Dayle'.$number, 'content'.$number,$time]);
 		dd($insert);
 
 		// 插入多条
 		// $data[]=['name'=>'re', 'other'=>'cghfhg'];
 		// $data[]=['name'=>'rtr', 'other'=>'ghju']; 
-		// $result=DB::table('l_member')->insert($data); dd($result);
+		// $result=DB::table('table_member')->insert($data); dd($result);
 
 		// 插入并获取主键
-		// DB::table('l_member')->insertGetId(['name'=>'fds','other'=>'trffd']);
+		// DB::table('table_member')->insertGetId(['name'=>'fds','other'=>'trffd']);
 	}
 
 	//***********************************************************
@@ -187,7 +187,7 @@ class MemberController extends Controller
 	//***********************************************************
 	public function select_data($value='')
 	{
-		$select=DB::select('select * from l_member where id = :id', ['id' => 1]);
+		$select=DB::select('select * from table_member where id = :id', ['id' => 1]);
 		// print_r($select);
 		dd($select);
 		var_dump($select);
@@ -200,7 +200,7 @@ class MemberController extends Controller
 	 public function update_data($id='')
 	 {
 	 	$time=time();   $number=rand(10000,99999); 
-	 	$update=DB::table('l_member')
+	 	$update=DB::table('table_member')
 	 			// ->where('id',1)           //可用
 	 			->whereIn("id", array(1,2))  //可用
 	 			// ->where(['id'=>['in',[1,2]]])//无法使用
@@ -214,7 +214,7 @@ class MemberController extends Controller
 	 public function delete_data($id='')
 	 {
 	 	//使用 CURD 删除
-	 	$delet=DB::delete('delete from l_member where id=?',[5]);	//[1] 可换成[$id] 
+	 	$delet=DB::delete('delete from table_member where id=?',[5]);	//[1] 可换成[$id] 
 	 	dd($delet);
 	 	//DB::table()->where()->delete(); //用构造器更方便 不用处理数据安全
 
@@ -229,17 +229,17 @@ class MemberController extends Controller
 	//***********************************************************
 	 public function DB_table($id='')
 	 {
-	 	$count=DB::table('l_member')->count();	
-	 	$max=DB::table('l_member')->max('addtime');	//最大
-	 	$min=DB::table('l_member')->min('addtime');	//最小
-	 	$avg=DB::table('l_member')->avg('addtime');	//平均	
-	 	$sum=DB::table('l_member')->sum('addtime');	//总和
+	 	$count=DB::table('table_member')->count();	
+	 	$max=DB::table('table_member')->max('addtime');	//最大
+	 	$min=DB::table('table_member')->min('addtime');	//最小
+	 	$avg=DB::table('table_member')->avg('addtime');	//平均	
+	 	$sum=DB::table('table_member')->sum('addtime');	//总和
 	 	echo "count：".$count.'<br>';
 	 	echo "max：".$max.'<br>';
 	 	echo "min：".$min.'<br>';
 	 	echo "avg：".$avg.'<br>';
 	 	echo "sum：".$sum.'<br>';
-	 	dd($sum);
+	 	// dd($sum);
 	 }
 
 
@@ -251,7 +251,7 @@ class MemberController extends Controller
 	//*
 	//***********************************************************
 	public function query_data(){
-		$users = DB::table('l_member')->get();
+		$users = DB::table('table_member')->get();
 		// dd($users); //dd打印会终止后面的代码
         return view('membertest/viwv_ariable', ['users' => $users]);
 	}
