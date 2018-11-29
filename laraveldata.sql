@@ -10,10 +10,23 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-11-23 18:32:45
+Date: 2018-11-28 21:08:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for fvgd
+-- ----------------------------
+DROP TABLE IF EXISTS `fvgd`;
+CREATE TABLE `fvgd` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of fvgd
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for table_member
@@ -115,3 +128,24 @@ INSERT INTO `table_withdraw` VALUES ('7', '18', '123.0', '1', '0', '1', '0', '15
 INSERT INTO `table_withdraw` VALUES ('8', '18', '22.0', '1', '0', '4', '0', '1525329355', '0');
 INSERT INTO `table_withdraw` VALUES ('9', '20', '20.0', '2', '0', '2', '0', '1525329383', '0');
 INSERT INTO `table_withdraw` VALUES ('10', '21', '123.0', '1', '0', '2', '0', '1525339883', '0');
+
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='用户表';
+
+-- ----------------------------
+-- Records of users
+-- ----------------------------
+INSERT INTO `users` VALUES ('8', '主机测试 从库克隆', null, '1');
+INSERT INTO `users` VALUES ('10', '3326', null, null);
+INSERT INTO `users` VALUES ('9', '456345', 'tyuy', null);
+INSERT INTO `users` VALUES ('11', 'gdrf人认购人', null, null);
+INSERT INTO `users` VALUES ('12', '双方身份', null, null);
